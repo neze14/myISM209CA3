@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BioData } from '../../bio-data/entities/bio-data.entity';
 
 @Entity()
 export class LinkedIdentity {
@@ -13,4 +14,8 @@ export class LinkedIdentity {
 
     @Column({nullable: true})
     mobileNumber: number;
+
+    @JoinColumn()
+    @OneToOne(type => BioData, bioData => bioData.linkedIdentity, {cascade:true})
+    bioData: BioData;
 }

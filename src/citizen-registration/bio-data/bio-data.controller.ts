@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, Render } from '@nestjs/common';
 import { BioDataService } from './bio-data.service';
 import { CreateBioDataDto } from './dto/create-bio-data.dto';
 import { UpdateBioDataDto } from './dto/update-bio-data.dto';
@@ -31,4 +31,8 @@ export class BioDataController {
   remove(@Param('id') id: string) {
     return this.bioDataService.remove(+id);
   }
+
+  @Get('create')
+  @Render('citizen/create-registration.html')
+  createForm(){}
 }

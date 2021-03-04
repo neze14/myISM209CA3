@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, Patch } from '@nestjs/common';
 import { LinkedIdentityService } from './linked-identity.service';
 import { CreateLinkedIdentityDto } from './dto/create-linked-identity.dto';
 import { UpdateLinkedIdentityDto } from './dto/update-linked-identity.dto';
+import { LinkedIdentity } from './entities/linked-identity.entity';
 
 @Controller('linked-identity')
 export class LinkedIdentityController {
@@ -30,5 +31,15 @@ export class LinkedIdentityController {
   @Delete(':id1')
   remove(@Param('id1') id1: string) {
     return this.linkedIdentityService.remove(+id1);
+  }
+
+  @Patch(':studentId/user/userId')
+  setUserById(@Param('studentId') studentId: number, @Param('userId') userId: number) {
+    return this.LinkedIdentityService.setUserById(studentId, userId);
+  }
+  
+  @Delete(':studentId/user')
+  unsetUserById(@Param('studentId') LinkedIdentityID: number) {
+    return this.LinkedIdentityService.unsetBioDataById(linkedIdentityId);
   }
 }

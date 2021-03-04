@@ -28,9 +28,4 @@ export class AppController {
     return this.appService.getAboutUs();
   }
 
-  @Get('registartion')
-  @Render('registartion.html')
-  getRegistration(): {} {
-    return this.appService.getRegistration();
-  }
 }
