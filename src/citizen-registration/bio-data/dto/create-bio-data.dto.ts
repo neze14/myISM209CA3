@@ -1,3 +1,4 @@
+import { CreateLinkedIdentityDto } from '../../linked-identity/dto/create-linked-identity.dto';
 export class CreateBioDataDto {
     readonly firstname: string;
     readonly middleName?: string;
@@ -9,4 +10,5 @@ export class CreateBioDataDto {
     readonly townOfBirth?: string;
     readonly residenceAddress?: string;
     readonly profession: string;
+    static LinkedIdenitiy: CreateLinkedIdentityDto;
 }

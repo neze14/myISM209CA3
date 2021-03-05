@@ -5,6 +5,7 @@ import { BioData } from '../bio-data/entities/bio-data.entity';
 import { UpdateLinkedIdentityDto } from './dto/update-linked-identity.dto';
 import { CreateLinkedIdentityDto } from './dto/create-linked-identity.dto';
 import { LinkedIdentity } from './entities/linked-identity.entity';
+import { CreateBioDataDto } from '../bio-data/dto/create-bio-data.dto';
 
 @Injectable()
 export class LinkedIdentityService {
@@ -21,7 +22,7 @@ export class LinkedIdentityService {
     const newLinkedIdentity = this.linkedIdentityRepository.create(createLinkedIdentityDto);
 
     if(CreateLinkedIdentityDto.BioData) {
-      const newLinkedIdentity = this.linkedIdentityRepository.create(CreateBioDataDto.linkedIdenitiy);
+      const newLinkedIdentity = this.linkedIdentityRepository.create(CreateBioDataDto.LinkedIdenitiy);
       const BioData: BioData = await this.BioDataRepository.save(newBioData);
       newLinkedIdentity.BioData = BioData;
     }

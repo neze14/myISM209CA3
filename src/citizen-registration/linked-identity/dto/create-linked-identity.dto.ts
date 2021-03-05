@@ -4,5 +4,5 @@ export class CreateLinkedIdentityDto {
     readonly nationalIdentityNumber: number;
     readonly bankVerificationNumber: number;
     readonly mobiileNumber?: number;
-    readonly BioData: CreateBioDataDto; //In case you want to create bioData along with linkedIdentity 
+    static BioData: CreateBioDataDto; //In case you want to create bioData along with linkedIdentity 
 }
