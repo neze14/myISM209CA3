@@ -28,4 +28,10 @@ export class AppController {
     return this.appService.getAboutUs();
   }
 
+  @Get('registration')
+  @Render('/citizen/create-registration.html.html')
+  getRegistration(): {} {
+    return this.appService.getRegistration();
+  }
+
 }

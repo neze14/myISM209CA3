@@ -36,12 +36,6 @@ export class BioData {
 
     @Column()
     profession: string;
-
-    @JoinColumn()
-    @OneToOne(
-        (type) => LinkedIdentity,
-        (linkedIdentity) = linkedIdentity.bioData,
-    )
-    linkedIdentity: LinkedIdentity;
+    LinkedIdentity: any;
 
 }

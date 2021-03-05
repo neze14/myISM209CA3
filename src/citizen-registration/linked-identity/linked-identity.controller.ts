@@ -33,13 +33,13 @@ export class LinkedIdentityController {
     return this.linkedIdentityService.remove(+id1);
   }
 
-  @Patch(':studentId/user/userId')
-  setUserById(@Param('studentId') studentId: number, @Param('userId') userId: number) {
-    return this.LinkedIdentityService.setUserById(studentId, userId);
+  @Patch(':LinkedIdentityId/bioData/userId')
+  setUserById(@Param('linkedIdentitytId') linkedIdentityId: number, @Param('BioDataId') BioDataId: number) {
+    return this.linkedIdentityService.setBioDataById(+linkedIdentityId, +BioDataId);
   }
   
-  @Delete(':studentId/user')
-  unsetUserById(@Param('studentId') LinkedIdentityID: number) {
-    return this.LinkedIdentityService.unsetBioDataById(linkedIdentityId);
+  @Delete(':linkedIdentityId/bioData')
+  unsetUserById(@Param('linkedIdentityId') linkedIdentityId: number) {
+    return this.linkedIdentityService.unsetBioDataById(+linkedIdentityId);
   }
 }

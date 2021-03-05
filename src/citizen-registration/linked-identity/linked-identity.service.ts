@@ -1,33 +1,22 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import { BioData } from '../bio-data/entities/bio-data.entity';
 import { UpdateLinkedIdentityDto } from './dto/update-linked-identity.dto';
 import { CreateLinkedIdentityDto } from './dto/create-linked-identity.dto';
 import { LinkedIdentity } from './entities/linked-identity.entity';
-import { CreateBioDataDto } from '../bio-data/dto/create-bio-data.dto';
 
 @Injectable()
 export class LinkedIdentityService {
 
   constructor(
+    //inject linked identity repository for use here in LinkedIdentityService as if it is part of the class
     @InjectRepository(LinkedIdentity)
     private linkedIdentityRepository: Repository<LinkedIdentity>
-
-    @InjectRepository(BioData)
-    private BioDataRepository: Repository<BioData>
   ){}
-
   async create(createLinkedIdentityDto: CreateLinkedIdentityDto) {
-    const newLinkedIdentity = this.linkedIdentityRepository.create(createLinkedIdentityDto);
-
-    if(CreateLinkedIdentityDto.BioData) {
-      const newLinkedIdentity = this.linkedIdentityRepository.create(CreateBioDataDto.LinkedIdenitiy);
-      const BioData: BioData = await this.BioDataRepository.save(newBioData);
-      newLinkedIdentity.BioData = BioData;
-    }
-    return this.linkedIdentityRepository.save(newLinkedIdentity)
-    // return 'This action adds a new likedIdentity';
+    const newLinkedIdentityt: LinkedIdentity = this.linkedIdentityRepository.create(createLinkedIdentityDto)
+    return this.linkedIdentityRepository.save(newLinkedIdentityt);
+    //return 'This action adds a new linked identity';
   }
 
   async findAll() {

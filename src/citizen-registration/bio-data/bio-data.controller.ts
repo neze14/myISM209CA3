@@ -31,8 +31,4 @@ export class BioDataController {
   remove(@Param('id') id: string) {
     return this.bioDataService.remove(+id);
   }
-
-  @Get('create')
-  @Render('citizen/create-registration.html')
-  createForm(){}
 }
